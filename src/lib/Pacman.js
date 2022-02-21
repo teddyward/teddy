@@ -5,8 +5,7 @@ import '../index.css';
 let IS_BROWSER = typeof window !== "undefined"
 let Snap;
 if (IS_BROWSER) {
-    Snap = require('legacy-loader?exports=Snap!snapsvg');
-    window.Snap = Snap;
+    Snap = window.Snap
 }
 
 
