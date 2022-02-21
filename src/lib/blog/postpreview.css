@@ -1,0 +1,28 @@
+.post {
+    align-items: center;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    height: 240px;
+    justify-content: space-between;
+    padding: 0 5% 0 5%;
+    width: 100%;
+}
+
+.previewtext {
+    max-height: 180px;
+}
+
+.postdescription {
+    max-height: inherit;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
+
+.thumbnail {
+    height: 200px;
+    width: 360px;
+}
