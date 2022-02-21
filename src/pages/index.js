@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return <>
       <div className="text-3xl font-bold underline ml-10">
-        Teddy W
+        Teddy Ward
       </div>
       <SVGNavigator></SVGNavigator>
     </>
