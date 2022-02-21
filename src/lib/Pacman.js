@@ -2,15 +2,16 @@ import PropTypes from 'prop-types';
 import React from "react"
 import '../index.css';
 
-// window.Snap = SnapLib.Snap;
-var Snap = window.Snap
-var mina = window.mina
-
-/* <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script> */
+let IS_BROWSER = typeof window !== "undefined"
+let Snap;
+if (IS_BROWSER) {
+    Snap = require('legacy-loader?exports=Snap!snapsvg');
+    window.Snap = Snap;
+}
 
 
 class Pacman extends React.Component {
-  PAC_RADIUS = window.innerHeight * 0.05
+  PAC_RADIUS = IS_BROWSER ? window.innerHeight * 0.05 : 25;
 
   constructor(props) {
     super(props);

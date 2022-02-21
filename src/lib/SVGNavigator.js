@@ -2,12 +2,16 @@ import React from "react"
 import Pacman from "./Pacman";
 import '../index.css';
 
-var Snap = window.Snap
+let IS_BROWSER = typeof window !== "undefined"
+let Snap;
+if (IS_BROWSER){
+  Snap = require('legacy-loader?exports=Snap!snapsvg');
+  window.Snap = Snap;
+}
 
 class SVGNavigator extends React.Component {
 
-  CIRCLE_RADIUS = window.innerHeight * 0.1;
-
+  CIRCLE_RADIUS = IS_BROWSER ? window.innerHeight * 0.1 : 50;
 
   pulse(group, circleRadius) {
     group.animate({r: circleRadius * .98}, 2000, (v) => v, ()=>this.grow(group, circleRadius));
@@ -63,10 +67,9 @@ class SVGNavigator extends React.Component {
 
     const mapsCircle = this.addCircle(
       snapSVG, width/2, 2*circleRadius, "#219498", "About")
-    // width/2, 2*circleRadius
-    // mapsLink.add(snapSVG.text(0, 100, "I'm a link"))
     const blogCircle = this.addCircle(
-      snapSVG, width/2 - circleRadius - 10, 4*circleRadius, "#EBBAB9", "Blog?")
+      snapSVG, width/2 - this.CIRCLE_RADIUS - 10,
+      4 * this.CIRCLE_RADIUS, "#EBBAB9", "Blog?")
     const circles = [mapsCircle, blogCircle]
     circles.forEach((circle) => {
       this.pulse(circle, circleRadius)
@@ -74,11 +77,12 @@ class SVGNavigator extends React.Component {
   }
 
   render() {
+    const pacX = IS_BROWSER ? window.innerWidth/2 + 2*this.CIRCLE_RADIUS + 10 : 500
     return <>
       <svg id="svg" className="h-screen w-full"></svg>
       <Pacman
         radius={this.CIRCLE_RADIUS}
-        x={window.innerWidth/2 + 2*this.CIRCLE_RADIUS + 10}
+        x={pacX}
         y={3.5*this.CIRCLE_RADIUS}
       ></Pacman>
     </>
