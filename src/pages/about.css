@@ -1,6 +1,8 @@
 .swatch {
+    line-height: 32px;
     background-color: #219498;
     display: inline-block;
     height: 20px;
+    vertical-align: sub;
     width: 20px;
 }

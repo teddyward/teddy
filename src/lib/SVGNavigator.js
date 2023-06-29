@@ -45,13 +45,6 @@ class SVGNavigator extends React.Component {
     return circle
   }
 
-  // rotate(rotation, centerCircles, width, circleRadius) {
-  //   const bbox = centerCircles.getBBox()
-  //   centerCircles.animate({
-  //     transform: `t100 100 r180`
-  //   }, 1000, (v) => v, () => this.rotate(-360, centerCircles, bbox.cx, bbox.cy))
-  // }
-
   /**
    * Make a bunch of circles :)
    */
@@ -61,9 +54,8 @@ class SVGNavigator extends React.Component {
     const width = window.innerWidth;
     const circleRadius = height * .1;
 
-    // const blur = snapSVG.filter(Snap.filter.blur(5, 5));
-    // filter: blur,
-
+    // I think ideally these would be defined in `render`, all this would be
+    // moved to constants files, etc.
     const mapsCircle = this.addCircle(
       snapSVG, width/2, 2*circleRadius, "#219498", "About")
     const blogCircle = this.addCircle(

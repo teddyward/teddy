@@ -1,0 +1,10 @@
+.five-minute-map {
+    height: 100%;
+    min-height: 100%;
+    width: 80%;
+}
+
+.map-container {
+    height: 300px;
+    min-height: 300px;
+}

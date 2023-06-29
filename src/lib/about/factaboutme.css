@@ -1,0 +1,11 @@
+.fact-about-me {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.fact-detail {
+    font-size: .8em;
+    font-style: italic;
+    margin-left: 2px;
+    margin-top: 0;
+}
